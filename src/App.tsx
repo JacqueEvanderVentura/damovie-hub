@@ -1,9 +1,7 @@
-function App() {
+import { ReactNode } from "react";
 
-  return (
-    <>
-    </>
-  )
+function App(): ReactNode {
+	return <></>;
 }
 
-export default App
+export default App;
