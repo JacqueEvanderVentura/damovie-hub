@@ -30,6 +30,7 @@ module.exports = {
 		"@typescript-eslint/quotes": ["error", "double"],
 		"@typescript-eslint/no-unused-expressions": 2,
 		"@typescript-eslint/no-confusing-void-expression": 2,
-		"@typescript-eslint/consistent-type-imports": 0
+		"@typescript-eslint/consistent-type-imports": 0,
+		"@typescript-eslint/strict-boolean-expressions":0
 	},
 };
