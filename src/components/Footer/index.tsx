@@ -9,8 +9,13 @@ import awsPartner from "../../assets/svg/footer/aws-partner.svg";
 const Footer = (): ReactElement => {
 	return (
 		<footer className="bg-[#03067B] xl:h-96 ">
-			<div className="absolute z-10 m-10 flex flex-col items-start justify-center bottom-0 sm:bottom-[-110px] md:bottom-[-300px] lg:bottom-[-400px] xl:bottom-[-550px]">
-				<Heading level={5} className="font-semibold">We are coding the world of tomorrow_</Heading>
+			<div className="absolute z-10 m-10 md:mt-16 lg:mt-32 xl:mt-96 flex flex-col items-start justify-center">
+				<Heading
+					level={5}
+					className="font-semibold"
+				>
+					We are coding the world of tomorrow_
+				</Heading>
 				<Paragraph className="hidden sm:block w-5/6">
 					DaCodes es una de las mejores empresas de desarrollo de software en
 					México y LATAM. Lo que nos separa de los demás es el nivel de
