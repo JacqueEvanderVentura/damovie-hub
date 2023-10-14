@@ -1,22 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, Slice } from "@reduxjs/toolkit";
 
 export interface AuthState {
 	isLoggedIn: boolean;
 }
 
-const initialState: AuthState = {
-	isLoggedIn: false,
-};
-
-const authSlice = createSlice({
+const authSlice: Slice<AuthState> = createSlice({
 	name: "auth",
-	initialState,
+	initialState: {
+		isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
+	},
 	reducers: {
 		login: (state: AuthState) => {
 			state.isLoggedIn = true;
+			localStorage.setItem("isLoggedIn", "true");
+			// if (logoutTimeout !== null) {
+			// 	clearTimeout(logoutTimeout);
+			// }
+			// logoutTimeout = setTimeout(() => {
+			// 	state.isLoggedIn = false;
+			// 	localStorage.setItem("isLoggedIn", "false");
+			// 	logoutTimeout = null;
+			// }, 10 * 1000);
 		},
 		logout: (state: AuthState) => {
+			console.info("se llamo");
 			state.isLoggedIn = false;
+			localStorage.setItem("isLoggedIn", "false");
+			window.location.reload();
 		},
 	},
 });

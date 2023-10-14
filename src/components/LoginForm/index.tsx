@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import Heading from "../Heading";
 import { useDispatch } from "react-redux";
-import { login } from "../../logic/authSlice";
+import { login, logout } from "../../logic/authSlice";
+import Paragraph from "../Paragraph";
 
 const LoginForm = (): JSX.Element => {
 	const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const LoginForm = (): JSX.Element => {
 	const watchedEmail = watch("email");
 	const watchedPassword = watch("password");
 	const watchedConditions = watch("conditions");
+
 	const onSubmit = async (): Promise<void> => {
 		try {
 			const options = {
@@ -33,7 +35,10 @@ const LoginForm = (): JSX.Element => {
 			);
 			const data = await response.json();
 
-			data.success && dispatch(login());
+			data.success && dispatch(login(null));
+			setTimeout(() => {
+				dispatch(logout(null));
+			}, 3600 * 1000);
 		} catch (error) {
 			console.error(error);
 		}
@@ -75,13 +80,13 @@ const LoginForm = (): JSX.Element => {
 				)}
 			</div>
 			<div>
-				<label className="italic">
+				<label className="italic flex space-x-2 md:space-x-0">
 					<input
 						type="checkbox"
 						{...register("conditions", { required: true })}
 						className="sm:mr-2"
 					/>
-					He leído los términos y condiciones
+					<Paragraph className="text-sm">He leído los términos y condiciones</Paragraph>
 				</label>
 				{errors.conditions && <span>Conditions must be accepted</span>}
 			</div>
