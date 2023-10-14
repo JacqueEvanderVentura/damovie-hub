@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
 import Heading from "../Heading";
+import { useDispatch } from "react-redux";
+import { login } from "../../logic/authSlice";
 
 const LoginForm = (): JSX.Element => {
+	const dispatch = useDispatch();
+
 	const {
 		register,
 		handleSubmit,
@@ -29,11 +33,8 @@ const LoginForm = (): JSX.Element => {
 			);
 			const data = await response.json();
 
-			console.log(data);
-			// Store the token in local storage or state management library
-			// Redirect to the "Listado de películas" view
+			data.success && dispatch(login());
 		} catch (error) {
-			// Handle network or server error
 			console.error(error);
 		}
 	};
