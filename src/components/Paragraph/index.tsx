@@ -7,7 +7,7 @@ interface IParagraphProps {
 }
 
 const Paragraph = ({ children, className }: IParagraphProps): JSX.Element => {
-	const paragraphClasses = classNames("text-base lg:text-lg", className);
+	const paragraphClasses = classNames("text-base", className);
 
 	return <p className={paragraphClasses}>{children}</p>;
 };

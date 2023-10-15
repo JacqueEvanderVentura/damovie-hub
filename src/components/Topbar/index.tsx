@@ -9,7 +9,7 @@ const Topbar = (): ReactElement => {
 			<img
 				src={DacodesLogo}
 				alt="Dacodes Logo"
-				className="h-auto w-24 md:w-40 ml-0 sm:ml-6"
+				className="h-auto w-24 md:w-40 ml-0 sm:ml-6 lg:mx-11 xl:mx-32"
 			/>
 			<img
 				src={Avatar}
