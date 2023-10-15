@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 interface IHeadingProps {
 	children: ReactNode;
-	level?: 1 | 2 | 3 | 4 | 5 | 6;
+	level?: 1 | 2 | 3 | 4 | 5 | 6 ;
 	className?: string;
 }
 
@@ -13,15 +13,15 @@ const Heading = ({
 	className,
 }: IHeadingProps): JSX.Element => {
 	const sizes = [
-		"text-5xl lg:text-6xl",
-		"text-4xl lg:text-5xl",
-		"text-3xl lg:text-4xl",
-		"text-2xl lg:text-3xl",
-		"text-xl	lg:text-2xl",
-		"text-lg	lg:text-xl",
+		"text-5xl",
+		"text-4xl",
+		"text-3xl",
+		"text-2xl",
+		"text-xl",
+		"text-lg",
 	];
 
-	if (level >= 1 && level <= 6) {
+	if (level >= 1 && level <= 8) {
 		const headingClasses = classNames(
 			{ "font-bold": level < 4 },
 			"mb-4",
