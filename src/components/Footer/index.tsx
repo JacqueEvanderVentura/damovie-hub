@@ -8,15 +8,15 @@ import efy from "../../assets/svg/footer/efy.svg";
 import awsPartner from "../../assets/svg/footer/aws-partner.svg";
 const Footer = (): ReactElement => {
 	return (
-		<footer className="bg-[#03067B] xl:h-96 ">
-			<div className="absolute z-10 m-10 md:mt-16 lg:mt-32 xl:mt-96 flex flex-col items-start justify-center">
+		<footer className="bg-[#03067B] xl:h-96 mt-14 md:mt-28 lg:mt-40 2xl:mt-96">
+			<div className="absolute z-10 m-14 mt-20 md:mt-16 lg:mt-20 xl:mt-80 2xl:mt-96 flex flex-col items-start justify-center">
 				<Heading
 					level={5}
-					className="font-semibold"
+					className="font-semibold lg:text-4xl"
 				>
 					We are coding the world of tomorrow_
 				</Heading>
-				<Paragraph className="hidden sm:block w-5/6">
+				<Paragraph className="hidden sm:block w-5/6 xl:w-4/6 lg:text-2xl ">
 					DaCodes es una de las mejores empresas de desarrollo de software en
 					México y LATAM. Lo que nos separa de los demás es el nivel de
 					involucramiento que tenemos en nuestros proyectos y la pasión que

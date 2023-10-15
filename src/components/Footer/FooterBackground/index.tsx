@@ -6,7 +6,7 @@ const FooterBackground = (): React.ReactElement => {
 	return (
 		<svg
 			className="w-full h-auto z-0"
-			viewBox={isXlScreen ? "0 -250 1728 853" : "0 0 1728 853"}
+			viewBox={isXlScreen ? "0 -190 1728 853" : "0 0 1728 853"}
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
