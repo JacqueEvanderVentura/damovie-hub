@@ -19,13 +19,14 @@ const LoginForm = (): JSX.Element => {
 	const watchedConditions = watch("conditions");
 
 	const onSubmit = async (): Promise<void> => {
+		const apiKey = process.env.TMDB_API_KEY;
+
 		try {
 			const options = {
 				method: "GET",
 				headers: {
 					accept: "application/json",
-					Authorization:
-						"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZDRhMTliMWNjZWE2YzgxMzNmNTZmOWQzYTAxNWQ2YyIsInN1YiI6IjY1MjhiOGZmMWYzZTYwMDEzOTlkNjU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CiZ4CzMTR_bZspeGrXylAn9ct5VBPDK-7jgjgiQ4MOA",
+					Authorization: apiKey as string,
 				},
 			};
 
@@ -38,7 +39,7 @@ const LoginForm = (): JSX.Element => {
 			data.success && dispatch(login(null));
 			setTimeout(() => {
 				dispatch(logout(null));
-			}, 3600 * 1000);
+			}, 120 * 1000);
 		} catch (error) {
 			console.error(error);
 		}
@@ -48,7 +49,7 @@ const LoginForm = (): JSX.Element => {
 		<form
 			// eslint-disable-next-line @typescript-eslint/no-misused-promises
 			onSubmit={handleSubmit(onSubmit)}
-			className="space-y-5 sm:mt-8 flex-grow m-10 md:m-20"
+			className="space-y-5 sm:mt-8 flex-grow"
 		>
 			<header className="flex flex-col ">
 				<Heading level={2}>Login</Heading>
@@ -86,7 +87,9 @@ const LoginForm = (): JSX.Element => {
 						{...register("conditions", { required: true })}
 						className="sm:mr-2"
 					/>
-					<Paragraph className="text-sm">He leído los términos y condiciones</Paragraph>
+					<Paragraph className="text-sm">
+						He leído los términos y condiciones
+					</Paragraph>
 				</label>
 				{errors.conditions && <span>Conditions must be accepted</span>}
 			</div>
